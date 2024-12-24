@@ -1,0 +1,21 @@
+steps:
+  # Step 1: Build custom image using Docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '--platform=linux/amd64'
+      - '--tag=asia-east1-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY_NAME}/${_IMAGE_NAME}:${_IMAGE_TAG}'
+      - '.'
+
+  # Step 2: Push image to Artifact Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'asia-east1-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY_NAME}/${_IMAGE_NAME}:${_IMAGE_TAG}'
+
+substitutions:
+  # Default custom variables
+  _PROJECT_ID: 'projectid'
+  _REPOSITORY_NAME: 'code-oss'
+  _IMAGE_NAME: 'workstation-java'
+  _IMAGE_TAG: '1'

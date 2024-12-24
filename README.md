@@ -1,2 +1,165 @@
-# java-dev-env-template
+# Java Development Environment Template
+
 A standardized Java development environment template using VS Code DevContainer and Google Cloud Workstations. Streamlines development setup with pre-configured tools and consistent environments across teams.
+
+## ✨ Key Features
+
+- Java 21 (Liberica JDK)
+- VS Code DevContainer support
+- Google Cloud Workstations integration
+- Git hooks for automated code formatting
+- Pre-configured development tools
+- Ready-to-use development setup
+
+## Table of Contents
+
+- [Using VS Code DevContainer](#using-vs-code-devcontainer)
+- [Using Google Cloud Workstations](#using-google-cloud-workstations)
+
+## Using VS Code DevContainer
+
+### Prerequisites
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- VS Code Extension:
+  - [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
+
+### Quick Start
+
+1. Ensure Docker Desktop is running
+2. Open the project directory in VS Code
+3. VS Code will detect the `.devcontainer` directory and prompt to reopen the project in container
+4. Click **"Reopen in Container"** in the bottom-right corner or click the green button **"><"** in the bottom-left corner and select **"Reopen in Container"**
+
+### Additional Information
+
+The development container provides:
+- Pre-installed Java 21 (Liberica JDK)
+- VS Code extensions for Java development
+
+After container creation, the following setup is automatically performed:
+1. Installation of Google Java Formatter
+2. Configuration of Git Hooks
+
+Note: Git configurations are automatically synchronized from the host machine to the container (Mac)
+
+## Using Google Cloud Workstations
+
+### Building Workstations Image
+
+Open `workstations/cloudbuild.yaml` and modify the following variables:
+
+- `_PROJECT_ID`: Your GCP project ID
+- `_REPOSITORY_NAME`: Your Artifact Registry repository name
+- `_IMAGE_NAME`: Your Workstations image name
+- `_IMAGE_TAG`: Your Workstations image version
+
+Then run the following commands:
+```bash
+export PROJECT_ID={Your GCP project ID}
+
+cd workstations
+gcloud builds submit --config=cloudbuild.yaml --project=${PROJECT_ID}
+```
+
+This will build and push a Docker image with pre-installed Java 21 environment to Artifact Registry.
+
+### Setting up Workstations Environment
+
+#### Step 1: Create a Workstation Cluster
+
+Navigate to Google Cloud Workstations page, select Cluster Manager, and create a Workstation Cluster.
+
+![Cluster Manager](https://i.imgur.com/HEXuM7H.jpeg)
+
+![Create Workstation Cluster](https://i.imgur.com/7TvWtNM.jpeg)
+
+After creation is complete:
+
+![Workstation Cluster](https://i.imgur.com/OaY9fEV.jpeg)
+
+Next, select Workstation Configurations:
+
+![Workstation Configurations](https://i.imgur.com/0NLpbYu.jpeg)
+
+#### Step 2: Create Workstation Configuration
+
+1. Basic Information
+   - Name: `config-spring`
+   - Select your created cluster
+   - Quick start: Disabled (recommended for lower costs)
+
+2. Labels and Tags
+   - Labels: Add labels to categorize and manage resources
+   - Tags: Add tags to categorize and manage resources
+
+![Basic Information](https://i.imgur.com/EuoyYBn.jpeg)
+
+3. Machine Configuration
+   - Series: E2
+   - Machine type: e2-standard-4 (4 vCPU, 16 GB memory)
+   - Zones: asia-east1-a and asia-east1-c
+   - Auto-sleep: After 2 hours of inactivity
+
+![Machine Settings](https://i.imgur.com/Cm9AlqS.jpeg)
+
+4. Environment Settings
+   - Container image: Custom container image
+   - Container image URL: `asia-east1-docker.pkg.dev/${PROJECT_ID}/code-oss/workstation-java:1`
+   - Service account: Compute Engine default service account
+   - Storage: Create new empty persistent disk
+   - Disk type: Balanced
+
+![Environment Settings](https://i.imgur.com/ysfwalx.jpeg)
+
+5. Access Control
+   - Users and permissions: Users can create workstations through the console
+   - Add authorized users or groups as needed
+   - Keep Advanced options as default
+
+![Users and Permissions](https://i.imgur.com/a4sZ8vL.jpeg)
+
+Click CREATE to complete the configuration:
+
+![Workstation Configurations](https://i.imgur.com/jQYJROP.jpeg)
+
+#### Step 3: Create a Workstation
+
+Navigate to the Workstations page:
+
+![Workstations](https://i.imgur.com/0LdeXoM.jpeg)
+
+Click CREATE WORKSTATION and configure the following:
+
+![Create Workstation](https://i.imgur.com/0LdeXoM.jpeg)
+
+Configure the following settings:
+- Name: (e.g., w-samzhucn480th9v)
+- Display Name: (e.g., sam)
+- Configuration: Select your created configuration (e.g., config-spring)
+
+![Create Workstation](https://i.imgur.com/aIRBfK6.jpeg)
+
+After creation, your workstation will appear:
+
+![your Workstation](https://i.imgur.com/brAHRWm.jpeg)
+
+### Using Your Workstation
+
+Start your workstation and click the Launch button to access it:
+
+![Launch Workstation](https://i.imgur.com/omVzFKR.jpeg)
+
+The environment comes pre-configured with Java 21, Google Java Format tool, and predefined extensions:
+
+![Workstation Environment](https://i.imgur.com/n17kMEO.jpeg)
+
+You can also enable Gemini Code Assistant to help with development:
+
+![Gemini Code Assistant](https://i.imgur.com/wrHv4hx.jpeg)
+
+Your development environment is now ready for Java development with all necessary tools and extensions installed.
+
+
+
