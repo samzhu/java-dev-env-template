@@ -171,11 +171,18 @@ The environment comes pre-configured with Java 21, Google Java Format tool, and 
 
 ![Workstation Environment](https://i.imgur.com/n17kMEO.jpeg)
 
+### Gemini Code Assistant
+
 You can also enable Gemini Code Assistant to help with development:
 
 ![Gemini Code Assistant](https://i.imgur.com/wrHv4hx.jpeg)
 
 Your development environment is now ready for Java development with all necessary tools and extensions installed.
 
+### Quick Install Git Hooks
 
+Run the following command to install Git Hooks. This will automatically configure the pre-commit hook for Java code formatting:
 
+``` bash
+curl -fsSL https://raw.githubusercontent.com/samzhu/java-dev-env-template/main/workstations/install-java-format-hooks.sh | bash
+```
