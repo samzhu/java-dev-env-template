@@ -97,23 +97,28 @@ Next, select Workstation Configurations:
 ![Basic Information](https://i.imgur.com/EuoyYBn.jpeg)
 
 3. Machine Configuration
-   - Series: E2
-   - Machine type: e2-standard-4 (4 vCPU, 16 GB memory)
+   - Series: Choose based on your needs:
+     - N2: Recommended for development (best performance)
+     - E2: Cost-optimized general purpose workloads
+     - T2D: AMD-based alternative with good price/performance ratio
+   - Machine type: Select based on your development requirements:
+     - n2-standard-2 (2 vCPU, 8 GB memory): Standard development
+     - n2-standard-4 (4 vCPU, 16 GB memory): Heavy development
    - Zones: asia-east1-a and asia-east1-c
    - Auto-sleep: After 2 hours of inactivity
 
 ![Machine Settings](https://i.imgur.com/Cm9AlqS.jpeg)
 
-4. Environment Settings
+1. Environment Settings
    - Container image: Custom container image
-   - Container image URL: `asia-east1-docker.pkg.dev/${PROJECT_ID}/code-oss/workstation-java:1`
+   - Container image URL: `asia-east1-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY_NAME}/${IMAGE_NAME}:${IMAGE_TAG}`
    - Service account: Compute Engine default service account
    - Storage: Create new empty persistent disk
    - Disk type: Balanced
 
 ![Environment Settings](https://i.imgur.com/ysfwalx.jpeg)
 
-5. Access Control
+1. Access Control
    - Users and permissions: Users can create workstations through the console
    - Add authorized users or groups as needed
    - Keep Advanced options as default
