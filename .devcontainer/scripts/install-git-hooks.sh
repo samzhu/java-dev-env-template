@@ -16,9 +16,9 @@ fi
 mkdir -p .git/hooks
 
 # Copy the format script to the hooks directory
-echo "Installing format-staged-java-files.sh..."
-cp .devcontainer/scripts/format-staged-java-files.sh .git/hooks/format-staged-java-files.sh
-chmod +x .git/hooks/format-staged-java-files.sh
+# echo "Installing format-staged-java-files.sh..."
+# cp .devcontainer/scripts/format-staged-java-files.sh .git/hooks/format-staged-java-files.sh
+# chmod +x .git/hooks/format-staged-java-files.sh
 
 # Create or update pre-commit hook
 PRE_COMMIT=".git/hooks/pre-commit"
