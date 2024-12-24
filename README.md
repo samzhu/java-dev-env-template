@@ -27,10 +27,11 @@ A standardized Java development environment template using VS Code DevContainer 
 
 ### Quick Start
 
-1. Ensure Docker Desktop is running
-2. Open the project directory in VS Code
-3. VS Code will detect the `.devcontainer` directory and prompt to reopen the project in container
-4. Click **"Reopen in Container"** in the bottom-right corner or click the green button **"><"** in the bottom-left corner and select **"Reopen in Container"**
+1. Clone or copy the .devcontainer directory
+2. Ensure Docker Desktop is running
+3. Open the project directory in VS Code
+4. VS Code will detect the `.devcontainer` directory and prompt to reopen the project in container
+5. Click **"Reopen in Container"** in the bottom-right corner or click the green button **"><"** in the bottom-left corner and select **"Reopen in Container"**
 
 ### Additional Information
 
