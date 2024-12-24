@@ -102,10 +102,21 @@ Next, select Workstation Configurations:
      - E2: Cost-optimized general purpose workloads
      - T2D: AMD-based alternative with good price/performance ratio
    - Machine type: Select based on your development requirements:
-     - n2-standard-2 (2 vCPU, 8 GB memory): Standard development
-     - n2-standard-4 (4 vCPU, 16 GB memory): Heavy development
+     - n2-standard-2 (2 vCPU, 8 GB memory): Light development
+     - n2-standard-4 (4 vCPU, 16 GB memory): Standard development
+     - n2-standard-8 (8 vCPU, 32 GB memory): Heavy development
    - Zones: asia-east1-a and asia-east1-c
-   - Auto-sleep: After 2 hours of inactivity
+   - Auto-sleep: After 2 hours of inactivity (recommended for cost savings)
+
+Note: Cost estimate for n2-standard-4 (asia-east1)
+- Hourly rate: $0.224904
+- Daily usage: 9 hours
+- Monthly working days: 20 days
+- Monthly cost estimate: $0.224904 × 9 × 20 = ~$40.48
+
+Cost saving tips:
+1. Use Auto-sleep feature
+2. Stop workstation when not in use
 
 ![Machine Settings](https://i.imgur.com/Cm9AlqS.jpeg)
 
