@@ -99,7 +99,7 @@ Next, select Workstation Configurations:
 
 3. Machine Configuration
    - Series: Choose based on your needs:
-     - N2: Recommended for development (best performance)
+     - N2: Recommended for development
      - E2: Cost-optimized general purpose workloads
      - T2D: AMD-based alternative with good price/performance ratio
    - Machine type: Select based on your development requirements:
@@ -187,3 +187,49 @@ Run the following command to install Git Hooks. This will automatically configur
 ``` bash
 curl -fsSL https://raw.githubusercontent.com/samzhu/java-dev-env-template/main/workstations/install-java-format-hooks.sh | bash
 ```
+
+### Creating a Spring Boot Project
+
+Spring Boot CLI is pre-installed in the environment for quick project creation.
+
+``` bash
+mkdir workspace && cd workspace
+
+spring init --java-version=21 --dependencies=web,actuator sample-app.zip
+
+unzip sample-app.zip -d sample-app
+```
+
+After extraction, open the `sample-app` directory in VS Code to start developing your Spring Boot application.
+
+#### Additional Spring CLI Commands
+
+Use `spring init --list` to view all available options:
+- Dependencies: View all supported dependencies
+- Java versions: Check supported Java versions
+- Project types: See available project types
+- Packaging options: JAR or WAR
+- Language options: Java, Kotlin, or Groovy
+
+You can type spring help to get more details `spring help init`.
+
+Common usage examples:
+
+```bash
+# Create a Gradle project with Java
+spring init --type=gradle-project \
+            --java-version=21 \
+            --dependencies=web,data-jpa \
+            my-gradle-app.zip
+
+# Create a project with custom name and description
+spring init --name=MyApp \
+            --description="My Spring Boot Application" \
+            --package=com.example.myapp \
+            custom-app.zip
+```
+
+
+
+
+
