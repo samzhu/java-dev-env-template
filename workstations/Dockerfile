@@ -19,7 +19,8 @@ ENV PATH="${SDKMAN_DIR}/bin:${PATH}"
 # Install specific Java version (21.0.1-librca) using SDKMAN
 RUN bash -c "source $SDKMAN_DIR/bin/sdkman-init.sh && \
     sdk install java 21.0.1-librca && \
-    sdk default java 21.0.1-librca"
+    sdk default java 21.0.1-librca && \
+    sdk install springboot"
 
 # Initialize SDKMAN in global shell
 RUN echo "source /opt/sdkman/bin/sdkman-init.sh" >> /etc/bash.bashrc
