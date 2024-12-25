@@ -239,7 +239,8 @@ spring init --type=gradle-project \
             --name=demo \
             --description="Demo project for Spring Boot" \
             --package-name=com.example.demo \
-            --dependencies=devtools,lombok,configuration-processor,docker-compose,web,oauth2-client,postgresql,data-jpa,batch,validation,actuator,sbom-cyclone-dx,otlp-metrics,cloud-resilience4j,cloud-feign,prometheus,distributed-tracing,testcontainers
+            --dependencies=devtools,lombok,configuration-processor,docker-compose,web,oauth2-client,postgresql,data-jpa,batch,validation,actuator,sbom-cyclone-dx,otlp-metrics,cloud-resilience4j,cloud-feign,prometheus,distributed-tracing,testcontainers \
+            demo.zip
 ```
 
 Common Dependencies Explained
