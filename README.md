@@ -190,7 +190,7 @@ curl -fsSL https://raw.githubusercontent.com/samzhu/java-dev-env-template/main/w
 
 ### Creating a Spring Boot Project
 
-[Spring Boot CLI](https://docs.spring.io/spring-boot/cli/using-the-cli.html)is pre-installed in the environment for quick project creation.
+[Spring Boot CLI](https://docs.spring.io/spring-boot/cli/using-the-cli.html) is pre-installed in the environment for quick project creation.
 
 ``` bash
 mkdir workspace && cd workspace
