@@ -227,7 +227,40 @@ spring init --name=MyApp \
             --description="My Spring Boot Application" \
             --package=com.example.myapp \
             custom-app.zip
+
+# Common Spring Boot Dependencies
+spring init --type=gradle-project \
+            --language=java \
+            --boot-version=3.4.1 \
+            --packaging=jar \
+            --java-version=21 \
+            --groupId=com.example \
+            --artifactId=demo \
+            --name=demo \
+            --description="Demo project for Spring Boot" \
+            --package-name=com.example.demo \
+            --dependencies=devtools,lombok,configuration-processor,docker-compose,web,oauth2-client,postgresql,data-jpa,batch,validation,actuator,sbom-cyclone-dx,otlp-metrics,cloud-resilience4j,cloud-feign,prometheus,distributed-tracing,testcontainers
 ```
+
+Common Dependencies Explained
+- web: Web application development with Spring MVC and embedded Tomcat
+- devtools: Development tools including automatic restart and live reload
+- lombok: Annotation-based code generator to reduce boilerplate
+- configuration-processor: Metadata generation for custom configuration properties
+- docker-compose: Integration with Docker Compose for container orchestration
+- oauth2-client: OAuth 2.0 client support for authentication
+- postgresql: PostgreSQL JDBC driver and database connectivity
+- data-jpa: JPA data persistence with Hibernate
+- batch: Batch processing framework for enterprise applications
+- validation: Bean validation using Hibernate Validator
+- actuator: Production-ready features for monitoring and management
+- sbom-cyclone-dx: CycloneDX SBOM format for software supply chain security
+- otlp-metrics: OpenTelemetry protocol support for metrics export
+- cloud-resilience4j: Circuit breaker and fault tolerance patterns
+- cloud-feign: Declarative REST client with Netflix Feign
+- prometheus: Prometheus metrics collection and monitoring
+- distributed-tracing: Distributed tracing with OpenTelemetry
+- testcontainers: Container-based integration testing framework
 
 
 
